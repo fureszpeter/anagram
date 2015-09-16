@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Anagram\Http\Controllers\Auth;
 
-use App\User;
+use Anagram\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use Anagram\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
