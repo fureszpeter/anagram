@@ -145,6 +145,9 @@ return [
         Anagram\Providers\EventServiceProvider::class,
         Anagram\Providers\RouteServiceProvider::class,
 
+        //Generate Facade helpers
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+
     ],
 
     /*
