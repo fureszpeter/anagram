@@ -1,6 +1,7 @@
 <?php
 namespace Anagram\Domain\ValueObjects;
 
+use Anagram\Domain\Services\SignatureService;
 use InvalidArgumentException;
 
 /**
@@ -63,5 +64,43 @@ class DicWord
         $this->word = $word;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getWord();
+    }
+
+    /**
+     * @TODO Requirements needs this, but maybe author thought casting `__toString`.
+     *
+     * @return string
+     */
+    public function toString()
+    {
+        return $this->getWord();
+    }
+
+    /**
+     * @return \Anagram\Domain\ValueObjects\DicWord
+     */
+    public function getSignature()
+    {
+        $signatureService = new SignatureService();
+
+        return $signatureService->provide($this);
+    }
+
+    /**
+     * @param \Anagram\Domain\ValueObjects\DicWord $anotherInstance
+     *
+     * @return bool
+     */
+    public function signatureEqualsWithInstance(self $anotherInstance)
+    {
+        return (string) $this->getSignature() === (string) $anotherInstance->getSignature();
     }
 }

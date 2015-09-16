@@ -41,6 +41,77 @@ class DicWordTest extends TestCase
     }
 
     /**
+     * @dataProvider validWordProvider
+     *
+     * @param string $word
+     */
+    public function testStringCasting($word)
+    {
+        $dicWord = new DicWord($word);
+
+        $this->assertEquals($word, (string) $dicWord);
+    }
+
+    /**
+     * @dataProvider validWordProvider
+     *
+     * @param string $word
+     */
+    public function testToString($word)
+    {
+        $dicWord = new DicWord($word);
+
+        $this->assertEquals($word, $dicWord->toString());
+    }
+
+    /**
+     * @dataProvider validWordWithSignatureProvider
+     *
+     * @param string $word
+     * @param string $signature
+     */
+    public function testGetSignature($word, $signature)
+    {
+        $dicWord = new DicWord($word);
+
+        $this->assertEquals($signature, (string) $dicWord->getSignature());
+    }
+
+    /**
+     * @dataProvider signatureEqualityProvider
+     *
+     * @param \Anagram\Domain\ValueObjects\DicWord $wordA
+     * @param \Anagram\Domain\ValueObjects\DicWord $wordB
+     * @param bool $expectedResult
+     */
+    public function testSignatureEquals(DicWord $wordA, DicWord $wordB, $expectedResult)
+    {
+        $this->assertEquals(
+            $expectedResult,
+            $wordA->signatureEqualsWithInstance($wordB)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function signatureEqualityProvider()
+    {
+        return [
+            [
+                new DicWord('CbAd'),
+                new DicWord('AbCd'),
+                true,
+            ],
+            [
+                new DicWord('CbAd'),
+                new DicWord('abCd'),
+                false,
+            ],
+        ];
+    }
+
+    /**
      * @return array
      */
     public function invalidWordProvider()
@@ -62,6 +133,18 @@ class DicWordTest extends TestCase
         return [
             ['ThisIsAValidWord'],
             ['thi'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function validWordWithSignatureProvider()
+    {
+        return [
+            ['dcb', 'bcd'],
+            ['dcba', 'abcd'],
+            ['EbdhACfG', 'AbCdEfGh'],
         ];
     }
 }
