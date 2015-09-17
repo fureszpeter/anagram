@@ -19,9 +19,9 @@ class SignatureService
      */
     public function provide(DicWord $dicWord)
     {
-        $stringAsArray = str_split((string) $dicWord);
+        $stringAsArray = str_split(strtolower((string) $dicWord));
 
-        natcasesort($stringAsArray);
+        natsort($stringAsArray);
 
         return new DicWord(implode('', $stringAsArray));
     }
