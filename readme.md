@@ -21,11 +21,11 @@ characters. For example:
  - “mora” is an anagram of “amor” and “roma”.
  -  A word is an anagram of another word if both words have the same “signature”.
  - The “signature” of a word is: The result of alphabetically ordering the letters in the word. For example:
-    ○ the signature of “saco” is “acos”;
-    ○ the signature of “cosa” is “acos”, and
-    ○ the signature of “exam” is “aemx”.
-    ● A word is always an anagram of itself.
-    ● A dictionary of anagrams will search only for anagrams based on the words in the dictionary.
+    - the signature of “saco” is “acos”;
+    - the signature of “cosa” is “acos”, and
+    - the signature of “exam” is “aemx”.
+    - A word is always an anagram of itself.
+    - A dictionary of anagrams will search only for anagrams based on the words in the dictionary.
 
 ### Your solutions should have:
 
