@@ -100,11 +100,16 @@ class DicWordTest extends TestCase
         return [
             [
                 new DicWord('CbAd'),
-                new DicWord('AbCd'),
+                new DicWord('abcd'),
                 true,
             ],
             [
                 new DicWord('CbAd'),
+                new DicWord('abCd'),
+                true,
+            ],
+            [
+                new DicWord('CbAda'),
                 new DicWord('abCd'),
                 false,
             ],
@@ -144,7 +149,7 @@ class DicWordTest extends TestCase
         return [
             ['dcb', 'bcd'],
             ['dcba', 'abcd'],
-            ['EbdhACfG', 'AbCdEfGh'],
+            ['EbdhACfG', 'abcdefgh'],
         ];
     }
 }

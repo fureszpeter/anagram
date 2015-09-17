@@ -35,9 +35,9 @@ class SignatureServiceTest extends TestCase
     public function dicWordProvider()
     {
         return [
-            [new DicWord('dcb'), new DicWord('bcd')],
+            [new DicWord('AppleTree'), new DicWord('aeeelpprt')],
             [new DicWord('dcba'), new DicWord('abcd')],
-            [new DicWord('EbdhACfG'), new DicWord('AbCdEfGh')],
+            [new DicWord('EbdhACfG'), new DicWord('abcdefgh')],
         ];
     }
 }
